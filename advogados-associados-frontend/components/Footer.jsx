@@ -25,9 +25,9 @@ export default function Footer() {
                     <div className="column">
                         <h5 className="has-text-weight-bold pb-5 is-size-5">Redes Sociais</h5>
                         <ul className="menu-list">
-                            <li><Link href="https://www.linkedin.com/feed/"><a className="has-text-white" alt="Redes Sociais Linkedin"><span className="pr-3"><i className="fab fa-linkedin-in"></i></span> Linkedin</a></Link></li>
-                            <li><Link href="https://twitter.com/login?lang=pt"><a className="has-text-white" alt="Redes Sociais Twitter"><span className="pr-3"><i className="fab fa-twitter"></i></span> Twitter</a></Link></li>
-                            <li><Link href="https://www.facebook.com/"><a className="has-text-white" alt="Redes Sociais Facebook"><span className="pr-3"><i className="fab fa-facebook-f"></i></span> Facebook</a></Link></li>
+                            <li><a href="http://www.linkedin.com" className="has-text-white" alt="Redes Sociais Linkedin"><span className="pr-3"><i className="fab fa-linkedin-in"></i></span> Linkedin</a></li>
+                            <li><a href="http://www.twitter.com" className="has-text-white" alt="Redes Sociais Twitter"><span className="pr-3"><i className="fab fa-twitter"></i></span> Twitter</a></li>
+                            <li><a href="http://www.facebook.com" className="has-text-white" alt="Redes Sociais Facebook"><span className="pr-3"><i className="fab fa-facebook-f"></i></span> Facebook</a></li>
                         </ul>
                     </div>
                     <div className="column">

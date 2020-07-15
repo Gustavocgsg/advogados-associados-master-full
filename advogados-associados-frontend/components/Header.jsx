@@ -22,9 +22,9 @@ export default function Header(){
                                 <p className="level-item"><Link href="/contato"><a href="" className="link has-text-white-bis"><span><i className="fas fa-map-marker-alt"></i></span> Google Maps</a></Link></p>
                             </div>
                             <div className="level-right has-text-white-bis">
-                                <p className="level-item"><Link href="https://www.linkedin.com/feed/"><a className="link has-text-white-bis"><i className="fab fa-linkedin-in"></i></a></Link></p>
-                                <p className="level-item"><Link href="https://twitter.com/login?lang=pt"><a className="link has-text-white-bis"><i className="fab fa-twitter"></i></a></Link></p>
-                                <p className="level-item"><Link href="https://www.facebook.com/"><a className="link has-text-white-bis"><i className="fab fa-facebook-f"></i></a></Link></p>
+                                <p className="level-item"><a href="http://www.linkedin.com" className="link has-text-white-bis"><i className="fab fa-linkedin-in"></i></a></p>
+                                <p className="level-item"><a href="http://www.twitter.com" className="link has-text-white-bis"><i className="fab fa-twitter"></i></a></p>
+                                <p className="level-item"><a href="http://www.facebook.com" className="link has-text-white-bis"><i className="fab fa-facebook-f"></i></a></p>
                             </div>
                         </nav>
                     </div>
