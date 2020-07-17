@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { URL_API } from '../utils/config'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -7,22 +8,27 @@ import { useEffect } from 'react'
 export default function PageNoticiasInterna(props) {
 
     const [data, setData] = useState({})
+    const router = useRouter()
 
     useEffect(() => {
             async function loadingNotice() {
                 //fazendo conexão com a API e BANCO DE DADOS
                 //faz a requizição no adonis e puxa as informações de rota viondas do banco de dados
-                const response = await axios.get(URL_API + '/news/' + props.id)
+                let id = props.id
+                if(!id){
+                    id = router.asPath.split("=")[1]
+                }
+                const response = await axios.get(URL_API + '/news/' + id)
 
-                console.log(response.data)
+
+                // console.log(response.data)
+                
                 setData({ ...response.data })
             }
+            console.log(router)
             
-            if (props.id) {
-                loadingNotice()
-            }else{
-                console.log("algo deu errado...")
-            }
+            loadingNotice()
+            
         }
         , [])
 

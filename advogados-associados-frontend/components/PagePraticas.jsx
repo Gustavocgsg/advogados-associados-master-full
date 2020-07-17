@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import Link from 'next/link'
 import SectionPraticas from './SectionPraticas'
+import SectionPraticasJuridicas from './SectionPraticasJuridicas'
 import SectionPraticasLinha from './SectionPraticasLinha'
 import SectionContato from './SectionContato'
 
@@ -65,99 +66,7 @@ export default function PagePraticas() {
         }
       </section>
       <section className="section" data-animate="left">
-        <div className="container">
-          <h1 className="title is-size-2 is-size-3-mobile has-text-centered pb-5" >
-            Algumas de nossas Práticas Juridicas mais procuradas
-          </h1>
-          <div className="columns">
-            <div className="column">
-              <div className="card boxshadowborder">
-                <div className="card-content has-text-centered">
-                  <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                  <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                  <p className="title is-size-6">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                  </p>
-                  <p className="subtitle is-size-7">
-                    Jeff Atwood
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="column">
-              <div className="card boxshadowborder">
-                <div className="card-content has-text-centered">
-                  <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                  <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                  <p className="title is-size-6">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                  </p>
-                  <p className="subtitle is-size-7">
-                    Jeff Atwood
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="column">
-              <div className="card boxshadowborder">
-                <div className="card-content has-text-centered">
-                  <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                  <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                  <p className="title is-size-6">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                  </p>
-                  <p className="subtitle is-size-7">
-                    Jeff Atwood
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="columns">
-            <div className="column">
-              <div className="card boxshadowborder">
-                <div className="card-content has-text-centered">
-                  <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                  <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                  <p className="title is-size-6">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                  </p>
-                  <p className="subtitle is-size-7">
-                    Jeff Atwood
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="column">
-              <div className="card boxshadowborder">
-                <div className="card-content has-text-centered">
-                  <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                  <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                  <p className="title is-size-6">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                  </p>
-                  <p className="subtitle is-size-7">
-                    Jeff Atwood
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="column">
-              <div className="card boxshadowborder">
-                <div className="card-content has-text-centered">
-                  <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                  <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                  <p className="title is-size-6">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                  </p>
-                  <p className="subtitle is-size-7">
-                    Jeff Atwood
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SectionPraticasJuridicas />
       </section>
       <section className="hero is-medium is-bold" data-animate="bottom">
       { 

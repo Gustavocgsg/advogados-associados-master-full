@@ -39,12 +39,16 @@ export default function Layout(props) {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <link href="../../assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
                 <link href="../../assets/css/style-site.css" rel="stylesheet" type="text/css" />
-
+                <link rel="icon" href="../public/favicon.svg" type="image/svg+xml" sizes="16x16"></link>
+                <link rel="icon" href="../..public/favicon.svg" type="image/svg+xml" sizes="16x16"></link>
+                <link rel="icon" href="../public/favicon.ico" type="image/x-icon"></link>
+                <link rel="icon" href="public/favicon.ico" type="image/x-icon"></link>
+                
                 <title>Index - Advogados Associados</title>
             </Head>
             <Header />
             <Main>
-                {props.children}
+                { props.children }
             </Main>
             <Footer />
             {/* <script src="/jquery/dist/jquery.min.js"></script>

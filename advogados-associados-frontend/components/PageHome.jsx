@@ -5,8 +5,32 @@ import { useEffect } from 'react'
 import Link from 'next/link'
 
 import SectionEquipe from './SectionEquipe'
+import SectionServicosLinha from './SectionServicosLinha'
+import SectionPraticasJuridicas from './SectionPraticasJuridicas'
+import SectionNoticiaHome from './SectionNoticiaHome'
 
 export default function PageHome() {
+
+  const [listNews, setListNews] = useState([])
+  const [listAbout, setListAbout] = useState([])
+
+  useEffect(
+      () => {
+          async function loading() {
+
+              //fazendo conexão com a API e BANCO DE DADOS
+              //faz a requizição no adonis e puxa as informações de rota viondas do banco de dados
+              const response = await axios.get(URL_API + '/news')
+              const response_2 = await axios.get(URL_API + '/abouts')
+
+              setListNews(response.data)
+              setListAbout(response_2.data)
+          }
+
+          loading()
+      }
+      , [])
+
   return (
     <section>
           <section className="hero is-large is-bold img-full-index bg-cover" data-animate="bottom">
@@ -32,7 +56,7 @@ export default function PageHome() {
             </div>  
           </section>
           <section className="hero is-medium is-bold ">
-            <div className="hero-body img-full-linha-index" data-animate="bottom">
+            <div className="hero-body img-full-linha-index" data-animate="top">
               <div className="container has-text-centered">
                 <h1 className="title is-size-3 is-size-4-mobile pb-5 has-text-white">
                   20 anos de experiência em diversos casos
@@ -61,153 +85,45 @@ export default function PageHome() {
               </div>
             </div>
           </section>
-          <section className="section" data-animate="left">
-            <SectionEquipe />
+          <section className="hero is-medium is-bold" data-animate="bottom">
+            {/* { 
+              listServices.slice(1).map(
+                item => {
+                  if(!item.showingoff) return null
+                  return(
+                    <SectionServicosLinha {...item} key={ 'Services' + item.id } />
+                  )
+                }
+              )
+            } */}
           </section>
-          <section className="hero is-medium is-dark is-bold" data-animate="bottom">
+          <section data-animate="bottom">
+            <SectionEquipe list={listAbout}/>
+          </section>
+
+          <section className="hero is-medium is-dark is-bold"  data-animate="bottom">
             <div className="hero-body">
-              <div className="container has-text-centered-desktop has-text-centered-mobile">
-                  <h1 className="title is-size-3 is-size-4-mobile pb-5">
-                  Notícias Recentes
-                  </h1>
-                  <div className="columns pt-5">
-                    <div className="column has-text-left-desktop has-text-centered-mobile px-6">
-                        <h4 className="title is-size-5 is-size-6-mobile">Categoría</h4>
-                        <h3 className="title is-size-3 is-size-5-mobile py-3">Lorem ipsum dolor sit amet</h3>
-                        <p className="subtitle is-size-6 is-size-7-mobile is-bold">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non est magna. Phasellus pharetra quam urna, eget lacinia lorem consectetur et. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sed justo placerat, faucibus metus vel, cursus magna. 
-                        </p>
-                        <a className="button is-dark is-inverted">
-                          <span className="icon">
-                            <i className="fas fa-newspaper"></i>
-                          </span>
-                          <span>Restrito</span>
-                        </a>
+                <div className="container has-text-centered-desktop has-text-centered-mobile">
+                    <h1 className="title is-size-3 is-size-4-mobile pb-5">
+                        Notícias Recentes
+                    </h1>
+                    <div className="columns pt-5">
+                      {
+                          listNews.slice(0,3).map(
+                            item => {
+                                if (!item.showingoff) return null
+                                return (
+                                    <SectionNoticiaHome {...item} key={'news' + item.id} />
+                                )
+                            }
+                          )
+                        }
                     </div>
-                    <div className="column has-text-left-desktop has-text-centered-mobile px-6">
-                      <h4 className="title is-size-5 is-size-6-mobile">Categoría</h4>
-                      <h3 className="title is-size-3 is-size-5-mobile py-3">Lorem ipsum dolor sit amet</h3>
-                      <p className="subtitle is-size-6 is-size-7-mobile is-bold">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non est magna. Phasellus pharetra quam urna, eget lacinia lorem consectetur et. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sed justo placerat, faucibus metus vel, cursus magna. 
-                      </p>
-                      <a className="button is-dark is-inverted">
-                        <span className="icon">
-                          <i className="fas fa-newspaper"></i>
-                        </span>
-                        <span>Restrito</span>
-                      </a>
-                  </div>
-                  <div className="column has-text-left-desktop has-text-centered-mobile px-6">
-                    <h4 className="title is-size-5 is-size-6-mobile">Categoría</h4>
-                    <h3 className="title is-size-3 is-size-5-mobile py-3">Lorem ipsum dolor sit amet</h3>
-                    <p className="subtitle is-size-6 is-size-7-mobile is-bold">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non est magna. Phasellus pharetra quam urna, eget lacinia lorem consectetur et. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent sed justo placerat, faucibus metus vel, cursus magna. 
-                    </p>
-                    <a className="button is-dark is-inverted">
-                      <span className="icon">
-                        <i className="fas fa-newspaper"></i>
-                      </span>
-                      <span>Restrito</span>
-                    </a>
-                </div>             
-              </div>
-              </div>
-            </div>
+                </div>
+            </div>           
           </section>
-          <section className="section">
-            <div className="container" data-animate="left">
-              <h1 className="title is-size-2 is-size-3-mobile has-text-centered pb-5">
-                Algumas de nossas Práticas Juridicas mais procuradas
-              </h1>
-                <div className="columns">
-                    <div className="column">
-                        <div className="card boxshadowborder">
-                            <div className="card-content has-text-centered">
-                              <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                              <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                              <p className="title is-size-6">
-                                “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                              </p>
-                              <p className="subtitle is-size-7">
-                                Jeff Atwood
-                              </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="column">
-                        <div className="card boxshadowborder">
-                            <div className="card-content has-text-centered">
-                              <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                              <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                              <p className="title is-size-6">
-                                “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                              </p>
-                              <p className="subtitle is-size-7">
-                                Jeff Atwood
-                              </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="column">
-                        <div className="card boxshadowborder">
-                            <div className="card-content has-text-centered">
-                              <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                              <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                              <p className="title is-size-6">
-                                “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                              </p>
-                              <p className="subtitle is-size-7">
-                                Jeff Atwood
-                              </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="columns">
-                    <div className="column">
-                        <div className="card boxshadowborder">
-                            <div className="card-content has-text-centered">
-                              <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                              <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                              <p className="title is-size-6">
-                                “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                              </p>
-                              <p className="subtitle is-size-7">
-                                Jeff Atwood
-                              </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="column">
-                        <div className="card boxshadowborder">
-                            <div className="card-content has-text-centered">
-                              <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                              <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                              <p className="title is-size-6">
-                                “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                              </p>
-                              <p className="subtitle is-size-7">
-                                Jeff Atwood
-                              </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="column">
-                        <div className="card boxshadowborder">
-                            <div className="card-content has-text-centered">
-                              <span className="is-size-1"><i className="fas fa-gavel"></i></span>
-                              <h1 className="has-text-weight-bold is-size-4">Direito Imobiliário</h1>
-                              <p className="title is-size-6">
-                                “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-                              </p>
-                              <p className="subtitle is-size-7">
-                                Jeff Atwood
-                              </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <section className="section" data-animate="bottom">
+            <SectionPraticasJuridicas />
           </section>
     </section>
   )

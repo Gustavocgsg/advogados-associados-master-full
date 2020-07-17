@@ -1,3 +1,6 @@
+html, body{
+    /* font-size: 14px; */
+}
 #social-midia{
     display: hidden;
 }
@@ -73,12 +76,14 @@
 .boxshadowborder p{
     color:#848080;
 }
-p.text-notice-space{
+.text-notice-space p{
     line-height: 1.8rem; 
     margin-top: 10px; 
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
 }
-p.text-notice-space-list{
+.text-notice-space-list{
     line-height: 1.8rem; 
     margin-top: 10px; 
     margin-bottom: 10px;

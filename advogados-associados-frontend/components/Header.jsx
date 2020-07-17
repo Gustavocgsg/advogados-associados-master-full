@@ -11,7 +11,7 @@ export default function Header(){
     }
 
     return (
-        <header data-animate="top">
+        <header>
             <section className="hero" id="social-midia">
                 <div className="hero-head bg-level">
                     <div className="container">

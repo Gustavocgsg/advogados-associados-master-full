@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import Link from 'next/link'
 import SectionNoticia from './SectionNoticia'
+import SectionNoticiaHome from './SectionNoticiaHome'
 
 export default function PageNoticias() {
 
@@ -17,7 +18,7 @@ export default function PageNoticias() {
                 //faz a requizição no adonis e puxa as informações de rota viondas do banco de dados
                 const response = await axios.get(URL_API + '/news')
                 
-                console.log(response.data)
+                // console.log(response.data)
                 
                 setListNews(response.data)
 
@@ -29,7 +30,7 @@ export default function PageNoticias() {
 
 
     return (
-        <section className="noticias" data-animate="top">
+        <section className="noticias" data-animate="bottom">
 
             <section className="hero is-medium is-bold img-full-insise bg-cover">
                 <div className="hero-body">
@@ -62,18 +63,30 @@ export default function PageNoticias() {
                     </div>
                 </div>
             </section>
-            <section className="section" data-animate="top">
+            <section className="section" data-animate="bottom">
                 {
                     listNews.map(
                         item => {
                             if (!item.showingoff) return null
                             return (
-                                <SectionNoticia {...item} key={item.id} />
+                                <SectionNoticia {...item} key={'news' + item.id} />
                             )
                         }
                     )
                 }
             </section>
+            {/* <section className="section" data-animate="top">
+                {
+                    listNews.map(
+                        item => {
+                            if (!item.showingoff) return null
+                            return (
+                                <SectionNoticiaHome {...item} key={'home' + item.id} />
+                            )
+                        }
+                    )
+                }
+            </section> */}
             <section className="hero" data-animate="top">
                 <div className="container-image">
                     <div className="texto-image">
@@ -82,7 +95,7 @@ export default function PageNoticias() {
                     </div>
                 </div>
             </section>
-            <section className="section">
+            {/* <section className="section">
                 <div className="container is-light">
                     <div className="columns">
                         <div className="column">1</div>
@@ -90,7 +103,7 @@ export default function PageNoticias() {
                         <div className="column">3</div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
         </section>
     )

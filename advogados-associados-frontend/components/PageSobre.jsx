@@ -13,23 +13,23 @@ export default function PageSobre() {
 
   useEffect(
     () => {
-        async function loadingAbouts(){
+      async function loadingAbouts() {
 
-            //fazendo conexão com a API e BANCO DE DADOS
-            //faz a requizição no adonis e puxa as informações de rota viondas do banco de dados
-            const response = await axios.get(URL_API + '/abouts')
-            
-            setListAbouts(response.data)
+        //fazendo conexão com a API e BANCO DE DADOS
+        //faz a requizição no adonis e puxa as informações de rota viondas do banco de dados
+        const response = await axios.get(URL_API + '/abouts')
 
-        }
+        setListAbouts(response.data)
 
-        loadingAbouts()
+      }
+
+      loadingAbouts()
     }
     , [])
 
   return (
-    <section className="PageSobre">
-      <section className="hero is-medium is-bold img-full-insise bg-cover" data-animate="bottom">
+    <section className="PageSobre" data-animate="top">
+      <section className="hero is-medium is-bold img-full-insise bg-cover">
         <div className="hero-body">
           <div className="container has-text-centered">
             <h1 className="title is-size-3 is-size-5-mobile pb-2 has-text-white">
@@ -51,33 +51,31 @@ export default function PageSobre() {
           </div>
         </div>
       </section>
-      <section className="section" data-animate="bottom">
-      { 
+      <section className="section">
+        {
           listAbouts.slice(0, 1).map(
             item => {
-              if(!item.showingoff) return null
-              return(
-                <SectionSobre {...item} key={ 'juju' + item.id} />
+              if (!item.showingoff) return null
+              return (
+                <SectionSobre {...item} key={'about' + item.id} />
               )
             }
           )
         }
       </section>
-      <section className="hero is-medium is-bold img-full-insise-two" data-animate="bottom">
-        { 
-          listAbouts.slice(1).map(
+      <section className="hero is-medium is-bold img-full-insise-two">
+        {
+          listAbouts.slice(1, 2).map(
             item => {
-              if(!item.showingoff) return null
-              return(
-                <SectionSobreLinha {...item} key={ 'about' + item.id } />
+              if (!item.showingoff) return null
+              return (
+                <SectionSobreLinha {...item} key={'line' + item.id} />
               )
             }
           )
         }
       </section>
-      <section className="section" data-animate="left">
-        <SectionEquipe />
-      </section>
+      <SectionEquipe />
     </section>
   )
 }
