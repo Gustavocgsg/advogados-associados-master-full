@@ -15,6 +15,10 @@ html, body{
     width: 1920px;
     height: 450px;
 }
+.img-erro404{
+    background: url("../images/erro404.png") no-repeat;
+    background-size: cover;
+}
 .img-full-index{
     background: url("../images/banner-1920x650-internas.svg") no-repeat;
     background-size: cover;
